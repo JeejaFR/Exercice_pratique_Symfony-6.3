@@ -18,7 +18,7 @@ class Livre
 
     #[ORM\Column(length: 255)]
     #[Assert\Length(
-        min: 5,
+        min: 3,
         max: 50,
         minMessage: "Le titre du livre doit faire au moins {{ limit }} caractères",
         maxMessage: "Le titre du livre doit faire au plus {{ limit }} caractères"
@@ -30,6 +30,8 @@ class Livre
     private Collection $categorie;
 
     #[ORM\ManyToOne(inversedBy: 'livres')]
+    #[ORM\JoinColumn(nullable:false,onDelete:"CASCADE")]
+    #[Assert\NotBlank()]
     private ?Auteur $auteur = null;
 
     public function __construct()

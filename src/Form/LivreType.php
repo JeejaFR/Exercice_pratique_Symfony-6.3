@@ -30,6 +30,7 @@ class LivreType extends AbstractType
             ])
             ->add('auteur', EntityType::class, [
                 'class' => Auteur::class,
+                'required' => true,
                 'choice_label' => function ($auteur) {
                     return $auteur->getNom() . ' ' . $auteur->getPrenom();
                 },

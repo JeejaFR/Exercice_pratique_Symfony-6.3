@@ -3,20 +3,29 @@
 {% block title %} Nos livres | -50% {% endblock %}
 
 {% block body %}
-    <h1 class="text-center">Gestionnaire des catégories</h1>
+    <h1 class="text-center">Gestionnaire des livres</h1>
+    <div class="d-flex justify-content-between">
+        <a href="{{ path('app.livre.create') }}" type="button" class="btn btn-primary">Ajouter un livre</a>
+    </div>
     <div class="d-flex flex-wrap">
     {% for livre in livres %}
         <div class="card m-2" style="width: 18rem;">
             <div class="card-body">
                 <h5 class="card-title">{{ livre.titre }} </h5>
                 <div class="d-flex flex-wrap">
+                {% if not livre.categorie|default %}
+                    <p class="text-muted mr-2">
+                        <span class="badge bg-secondary">spécial</span>
+                    </p>
+                {% else %}
                     {% for categorie in livre.categorie %}
                         <p class="text-muted mr-2">
                             <span class="badge bg-secondary">{{ categorie.nom }}</span>
                         </p>
                     {% endfor %}
+                {% endif %}
                 </div>
-
+                <p class="card-title"> {{ livre.auteur.nom }} {{ livre.auteur.prenom }} </p>
 
                 <div class="d-flex justify-content-between">
                     <a href="{{ path('app.livre.update', {id: livre.id }) }}" class="btn btn-warning">Modifier</a>
