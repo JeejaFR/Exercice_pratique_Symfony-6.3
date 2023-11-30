@@ -1,11 +1,21 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello CategorieController!{% endblock %}
+{% block title %}Nos catégories{% endblock %}
 
 {% block body %}
+    <h1 class="text-center">Gestionnaire des catégories</h1>
+    <div class="d-flex flex-wrap">
     {% for categorie in categories %}
-        <h2> {{categorie.nom}} </h2>
-        <a href="{{ path('app.categorie.update', {id: categorie.id }) }}" class="btn btn-warning">Modifier</a>
-        {% include 'categorie/_deleteform.html.twig' %}
+        <div class="card m-2" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">{{ categorie.nom }} </h5>
+                
+                <div class="d-flex justify-content-between">
+                    <a href="{{ path('app.categorie.update', {id: categorie.id }) }}" class="btn btn-warning">Modifier</a>
+                    {% include 'categorie/_deleteform.html.twig' %}
+                </div>
+            </div>
+        </div>
     {% endfor %}
+    </div>
 {% endblock %}

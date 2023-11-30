@@ -1,11 +1,29 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello LivreController!{% endblock %}
+{% block title %} Nos livres | -50% {% endblock %}
 
 {% block body %}
+    <h1 class="text-center">Gestionnaire des catégories</h1>
+    <div class="d-flex flex-wrap">
     {% for livre in livres %}
-        <h2> {{livre.titre}} </h2>
-        <a href="{{ path('app.livre.update', {id: livre.id }) }}" class="btn btn-warning">Modifier</a>
-        {% include 'livre/_deleteform.html.twig' %}
+        <div class="card m-2" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">{{ livre.titre }} </h5>
+                <div class="d-flex flex-wrap">
+                    {% for categorie in livre.categorie %}
+                        <p class="text-muted mr-2">
+                            <span class="badge bg-secondary">{{ categorie.nom }}</span>
+                        </p>
+                    {% endfor %}
+                </div>
+
+
+                <div class="d-flex justify-content-between">
+                    <a href="{{ path('app.livre.update', {id: livre.id }) }}" class="btn btn-warning">Modifier</a>
+                    {% include 'livre/_deleteform.html.twig' %}
+                </div>
+            </div>
+        </div>
     {% endfor %}
+    </div>
 {% endblock %}

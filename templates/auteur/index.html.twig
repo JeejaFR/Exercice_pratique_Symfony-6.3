@@ -3,9 +3,20 @@
 {% block title %}Hello AuteurController!{% endblock %}
 
 {% block body %}
+    <h1 class="text-center">Gestionnaire des auteurs</h1>
+    <div class="d-flex flex-wrap">
     {% for auteur in auteurs %}
-        <h2> {{auteur.nom}} {{auteur.prenom}} </h2>
-        <a href="{{ path('app.auteur.update', {id: auteur.id }) }}" class="btn btn-warning">Modifier</a>
-        {% include 'auteur/_deleteform.html.twig' %}
+        <div class="card m-2" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">{{ auteur.nom }} {{ auteur.prenom }} </h5>
+                <p class="text-muted"> ({{auteur.age}} ans) / {{auteur.pays}}</p>
+                
+                <div class="d-flex justify-content-between">
+                    <a href="{{ path('app.auteur.update', {id: auteur.id }) }}" class="btn btn-warning">Modifier</a>
+                    {% include 'auteur/_deleteform.html.twig' %}
+                </div>
+            </div>
+        </div>
     {% endfor %}
+    </div>
 {% endblock %}
