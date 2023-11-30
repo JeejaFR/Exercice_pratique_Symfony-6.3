@@ -5,5 +5,7 @@
 {% block body %}
     {% for auteur in auteurs %}
         <h2> {{auteur.nom}} {{auteur.prenom}} </h2>
+        <a href="{{ path('app.auteur.update', {id: auteur.id }) }}" class="btn btn-warning">Modifier</a>
+        {% include 'auteur/_deleteform.html.twig' %}
     {% endfor %}
 {% endblock %}
