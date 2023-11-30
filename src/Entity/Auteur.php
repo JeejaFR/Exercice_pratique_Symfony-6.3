@@ -43,7 +43,7 @@ class Auteur
     #[Assert\Length(
         min: 2,
         max: 30,
-        minMessage: "Le pays doit faire au moins {{ limit }} caractères",
+        minMessage: "Le pays de l'auteur doit faire au moins {{ limit }} caractères",
         maxMessage: "Le pays de l'auteur doit faire au plus {{ limit }} caractères"
     )]
     private ?string $pays = null;

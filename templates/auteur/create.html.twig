@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}
+    Création d'un auteur
+{% endblock %}
+
+{% block body %}
+    <section class="container mt-4">
+        <h1 class="text-center"> Création d'un auteur</h1>
+        {% include '_form.html.twig' with {button_label: 'CRÉER'} %}
+        <a href="{{ path('app.auteur.index') }}" class="btn btn-secondary mt-4"> Retour à la liste </a>
+    </section>
+{% endblock %}
