@@ -20,7 +20,7 @@ class LivreType extends AbstractType
                 'label' => 'Titre: ',
                 'required' => true,
                 'attr' => [
-                    'placeholder' => "Titre du livre"
+                    'placeholder' => "Titre du livre.."
                 ] 
             ])
             ->add('categorie', EntityType::class, [

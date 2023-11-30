@@ -18,28 +18,28 @@ class AuteurType extends AbstractType
                 'label' => 'Nom: ',
                 'required' => true,
                 'attr' => [
-                    'placeholder' => "Nom de famille"
+                    'placeholder' => "Nom de famille.."
                 ] 
             ])
             ->add('prenom', TextType::class, [
                 'label' => 'Prénom: ',
                 'required' => true,
                 'attr' => [
-                    'placeholder' => "Prénom"
+                    'placeholder' => "Prénom.."
                 ] 
             ])
             ->add('age', IntegerType::class, [
                 'label' => "Âge: ",
                 'required' => false,
                 'attr' => [
-                    'placeholder' => "Âge de l'auteur"
+                    'placeholder' => "Âge de l'auteur.."
                 ]
             ])
             ->add('pays', TextType::class, [
                 'label' => 'Pays: ',
                 'required' => true,
                 'attr' => [
-                    'placeholder' => "Pays d'origine"
+                    'placeholder' => "Pays d'origine.."
                 ] 
             ])
         ;

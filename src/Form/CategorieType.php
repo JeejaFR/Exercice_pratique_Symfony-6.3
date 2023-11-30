@@ -19,7 +19,7 @@ class CategorieType extends AbstractType
                 'label' => 'Nom: ',
                 'required' => true,
                 'attr' => [
-                    'placeholder' => "Nom de la catégorie"
+                    'placeholder' => "Nom de la catégorie.."
                 ] 
             ])
             ->add('livres', EntityType::class, [

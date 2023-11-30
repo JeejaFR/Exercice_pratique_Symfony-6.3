@@ -13,7 +13,8 @@
         {% endblock %}
     </head>
     <body>
-        {% include "navbar.html.twig" %}
+        {% include "layout/_navbar.html.twig" %}
+        {% include 'layout/_messages.html.twig' %}
         {% block body %}{% endblock %}
     </body>
 </html>

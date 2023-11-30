@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %} Nos livres | -50% {% endblock %}
+{% block title %}Library | Nos livres{% endblock %}
 
 {% block body %}
     <h1 class="text-center">Gestionnaire des livres</h1>
@@ -25,7 +25,7 @@
                     {% endfor %}
                 {% endif %}
                 </div>
-                <p class="card-title"> {{ livre.auteur.nom }} {{ livre.auteur.prenom }} </p>
+                <p class="card-title">{{ livre.auteur.nom }} {{ livre.auteur.prenom }} </p>
 
                 <div class="d-flex justify-content-between">
                     <a href="{{ path('app.livre.update', {id: livre.id }) }}" class="btn btn-warning">Modifier</a>
