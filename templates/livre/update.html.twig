@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Modification de 
+    {{ livre.titre }}
+    {{ parent() }}
+{% endblock %}
+
+{% block body %}
+    <section class="container mt-4">
+        <h1 class="text-center"> Modification de : {{ livre.titre }} </h1>
+        {% include '_form.html.twig' with {button_label: 'MODIFIER'} %}
+        <a href="{{ path('app.livre.index') }}" class="btn btn-primary mt-4"> Retour à la liste </a>
+    </section>
+{% endblock %}
