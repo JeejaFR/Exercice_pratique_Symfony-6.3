@@ -1,7 +1,49 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Nos catégories{% endblock %}
+{% block title %}Library | La meilleure librairie{% endblock %}
 
 {% block body %}
-    <h1 class="text-center">Page d'accueil</h1>
+    <style>
+        .card:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease-in-out;
+            background-color: rgb(230,230,230);
+        }
+    </style>
+
+    <header class="bg-dark text-white text-center py-4">
+        <h1>Page d'accueil</h1>
+    </header>
+
+        <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-4">
+                <a href="{{ path('app.livre.index')}}" class="card">
+                    <img src="book.png" class="card-img-top" alt="Nos livres">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Livres</h5>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-md-4">
+                <a href="{{ path('app.categorie.index')}}" class="card">
+                    <img src="category.png" class="card-img-top" alt="Nos catégories">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Catégories</h5>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-md-4">
+                <a href="{{ path('app.auteur.index')}}" class="card">
+                    <img src="writer.png" class="card-img-top" alt="Nos auteurs">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Auteurs</h5>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
 {% endblock %}
