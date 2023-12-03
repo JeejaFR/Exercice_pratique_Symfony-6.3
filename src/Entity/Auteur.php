@@ -37,6 +37,8 @@ class Auteur
     private ?string $prenom = null;
 
     #[ORM\Column(nullable: true)]
+    #[Assert\Range(min: 3, minMessage: "L'âge minimum est de {{ limit }} ans.")]
+    // On ne met pas d'âge maximum pour prendre en compte les vieux auteurs
     private ?int $age = null;
 
     #[ORM\Column(length: 255,nullable: true)]
