@@ -26,6 +26,7 @@ class LivreType extends AbstractType
             ->add('categorie', EntityType::class, [
                 'class' => Categorie::class,
                 'choice_label' => 'nom',
+                'required' => false,
                 'multiple' => true,
             ])
             ->add('auteur', EntityType::class, [
