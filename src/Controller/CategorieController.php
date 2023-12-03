@@ -39,6 +39,12 @@ class CategorieController extends AbstractController
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()){
+            // Cas où l'on ajoute la catégorie au livre
+            foreach ($categorie->getLivres() as $livre) {
+                $livre->addCategorie($categorie);
+                $this->em->persist($livre);
+            }
+
             $this->em->persist($categorie);
             $this->em->flush();
 
@@ -59,9 +65,25 @@ class CategorieController extends AbstractController
         }
 
         $form = $this->createForm(CategorieType::class,$categorie);
+        $livresAvantSoumission = $categorie->getLivres()->toArray();
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()){
+            
+            // Cas où l'on ajoute la catégorie au livre
+            foreach ($categorie->getLivres() as $livre) {
+                $livre->addCategorie($categorie);
+                $this->em->persist($livre);
+            }
+
+            // Cas où l'on retire la catégorie au livre
+            foreach ($livresAvantSoumission as $livreAvantSoumission) {
+                if (!$categorie->getLivres()->contains($livreAvantSoumission)) {
+                    $livreAvantSoumission->removeCategorie($categorie);
+                    $this->em->persist($livreAvantSoumission);
+                }
+            }
+
             $this->em->persist($categorie);
             $this->em->flush();
 
