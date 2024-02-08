@@ -1,6 +1,6 @@
-TP - Docker Avancé
+# TP - Docker Avancé
 
-Partie 1 - Dockerfile de l'Application (5 points)
+## Partie 1 - Dockerfile de l'Application (5 points)
 
 Pour cette partie, j'ai choisi d'utiliser une application Symfony développée pendant le cours de Symfony. L'image Docker est créée avec succès et fonctionnelle.
 
@@ -16,7 +16,8 @@ bash
 Copy code
 docker build -t tpnotedocker-www .
 Votre image Docker est maintenant prête à être utilisée.
-Partie 2 - Docker Compose (7 points)
+
+## Partie 2 - Docker Compose (7 points)
 
 Cette partie est partiellement fonctionnelle. Le conteneur Symfony et le conteneur de base de données se lancent, mais il y a des difficultés à établir une connexion avec PostgreSQL depuis Symfony.
 
@@ -36,7 +37,9 @@ Copy code
 docker-compose logs www_symfony
 docker-compose logs postgresql_symfony
 Assurez-vous que les conteneurs sont dans le même réseau Docker (rr-net).
-Partie 3 - Déploiement avec Docker Swarm (6 points)
+
+
+## Partie 3 - Déploiement avec Docker Swarm (6 points)
 
 Malheureusement, cette partie n'a pas pu être réalisée dans le temps imparti. Cependant, vous pouvez explorer cette étape ultérieurement pour une compréhension plus approfondie du déploiement avec Docker Swarm.
 
