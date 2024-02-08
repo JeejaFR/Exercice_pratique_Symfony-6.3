@@ -1,0 +1,40 @@
+version: '3.3'
+
+services:
+  www:
+    build: ./
+    depends_on:
+      - postgresql
+    container_name: www_symfony
+    restart: always
+    ports:
+      - '8000:8000'
+    dns:
+      - 8.8.8.8
+    volumes:
+      - ./:/var/www/
+    command: "symfony server:start"
+    networks:
+      - rr-net
+
+  postgresql:
+    image: postgres:${POSTGRES_VERSION:-14}-alpine
+    container_name: postgresql_symfony
+    restart: always
+    environment:
+      POSTGRES_DB: symfony
+      POSTGRES_PASSWORD: root
+      POSTGRES_USER: root
+    ports:
+      - 5432:5432
+    volumes:
+      - db-data:/var/lib/postgresql/data:rw
+    networks:
+      - rr-net
+
+networks:
+  rr-net:
+    driver: bridge
+
+volumes:
+  db-data:

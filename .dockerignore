@@ -1,0 +1,17 @@
+/var/
+/vendor/
+/node_modules/
+/.env
+/.env.local
+/.env.*.local
+/.phpunit.result.cache
+/docker-compose.yml
+/Dockerfile
+/.git
+/.gitignore
+/.idea/
+/.vscode/
+/public/bundles/
+/var/cache/
+/var/log/
+/var/sessions/
